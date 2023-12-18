@@ -1,0 +1,93 @@
+Registry:
+These are servers where images are placed
+The default registry used by Docker is Docker Hub
+
+Private Registry
+=================
+A registry as a container
+DTR
+ECR
+GCR
+
+
+
+When execute a docker file you get image.
+
+Custom image can be shipped to Registry
+
+Those who have access to the registry can access the image
+
+
+
+Install Docker
+	- yum install docker -y
+	
+Start Dicker
+	- systemctl start docker
+
+Check Status
+	- systemctl status docker
+
+List of images in docker
+	- docker image ls
+	or
+	- docker images
+	
+Pull image
+	- docker pull <imagename>
+	e.g docker pull ubuntu
+	
+Remove image
+	- docker rmi <imaename>
+	
+Run Ubuntu
+	- docker run ubuntu
+
+Check status
+	- docker ps -a
+	
+whenever u run an image, u get new container
+
+Run options
+============
+docker run --name <containername> <imagename>
+	e.g docker run --name cont1 ubuntu
+	
+Remove container
+	- docker rm -f <containerid>
+	
+In docker there are two type of modes:
+Foreground Mode (-it)
+====================
+i - interactive t- terminal
+> this option (-it) is used with docker run command and then
+	- The container will be created
+	- Container will be up and running
+	- User will be attached to the terminal of the container. That means user will be inside the container
+
+Come out of the container and keep it running
+	- CTRL + pq
+
+Go back into the container
+	- docker attach <containername>/<containerid>
+	
+Come out of container and exit 
+	- exit
+	
+Start and Stop a container
+	- docker start <containername>
+	- docker stop <containername>
+	
+Clean the docker machine
+	- docker system prune --all
+	This will remove:
+	  - all stopped containers
+	  - all networks not used by at least one container
+	  - all images without at least one container associated to them
+	  - all build cache
+
+Delete only images and not its containers
+	- docker image prune --all
+
+Detached Mode (-d)
+==================
